@@ -6,10 +6,10 @@
   "author": "Siddhartha Gudipati",
   "license": "MIT",
   "type": "module",
-  "homepage": "https://github.com/stubbycms/stubby-starter-minimal-blog",
+  "homepage": "https://github.com/stubbycms/ui",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stubbycms/stubby-starter-minimal-blog.git"
+    "url": "git+https://github.com/stubbycms/ui.git"
   },
   "files": [
     "dist",
