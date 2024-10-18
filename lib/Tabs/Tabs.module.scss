@@ -1,0 +1,43 @@
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.tabLabel {
+  cursor: pointer;
+  @apply mb-2 mr-3 rounded-md px-3 py-1.5 text-sm font-medium hover:bg-slate-800/10 dark:hover:bg-slate-800 text-slate-500;
+}
+
+.tabRadio {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+}
+
+.tabRadio:checked + .tabLabel {
+  @apply relative block text-slate-800 dark:text-slate-200;
+
+  &:after {
+    content: '';
+    display: block;
+    height: 1px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -9px;
+
+    @apply bg-slate-700;
+  }
+
+  + .tabPanel {
+    display: block;
+  }
+}
+
+.tabPanel {
+  order: 99;
+  display: none;
+  width: 100%;
+  @apply border-t p-4;
+}

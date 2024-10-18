@@ -1,0 +1,58 @@
+.accordionGroup {
+  .accordion:first-child {
+    @apply rounded-b-none rounded-t-xl border-b-0;
+  }
+
+  .accordion {
+    @apply rounded-none border-b-0;
+  }
+
+  .accordion:last-child {
+    @apply rounded-b-xl rounded-t-none border-b;
+  }
+}
+
+.accordion {
+  @apply bg-white overflow-hidden rounded-xl border dark:border-slate-700;
+
+  .accordionSummary {
+    @apply m-0 cursor-pointer select-none bg-slate-50 px-4 py-2.5 font-medium text-gray-900 dark:bg-gray-900 dark:text-gray-200;
+
+    display: flex;
+
+    &::before {
+      content: '';
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="gray" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>');
+      background-repeat: no-repeat;
+      background-size: 16px;
+      background-position: center;
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+
+      @media (prefers-color-scheme: dark) {
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>');
+      }
+    }
+  }
+
+  &[open] {
+    .accordionSummary::before {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="gray" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 15 6-6 6 6"/></svg>');
+
+      @media (prefers-color-scheme: dark) {
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 15 6-6 6 6"/></svg>');
+      }
+    }
+  }
+
+  > div {
+    :first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.accordionContent {
+  @apply p-4 dark:bg-slate-900 dark:text-slate-200;
+}

@@ -1,0 +1,79 @@
+{
+  "name": "@stubbycms/ui",
+  "private": false,
+  "version": "0.0.0-development",
+  "description": "",
+  "author": "Siddhartha Gudipati",
+  "license": "MIT",
+  "type": "module",
+  "homepage": "https://github.com/stubbycms/stubby-starter-minimal-blog",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stubbycms/stubby-starter-minimal-blog.git"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "dist/*.css"
+  ],
+  "sideEffects": [
+    "**/*.scss"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./*.css": {
+      "import": "./dist/*.css",
+      "require": "./dist/*.css"
+    }
+  },
+  "scripts": {
+    "dev": "vite dev",
+    "test": "vitest run",
+    "build": "tsc --p ./tsconfig.build.json && vite build",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.2",
+    "@vitejs/plugin-react-swc": "^3.7.1",
+    "autoprefixer": "^10.4.20",
+    "globals": "^15.11.0",
+    "postcss": "^8.4.47",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sass": "^1.79.5",
+    "semantic-release": "^24.1.2",
+    "tailwind-merge": "^2.5.4",
+    "tailwindcss": "^3.4.14",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.3",
+    "vite": "^5.4.9",
+    "vite-plugin-css-injected-by-js": "^3.5.2",
+    "vite-plugin-dts": "^4.2.4",
+    "vite-plugin-lib-inject-css": "^2.1.1"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.453.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
