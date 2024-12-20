@@ -6,4 +6,8 @@
   pre {
     @apply text-sm rounded-xl border;
   }
+
+  img {
+    @apply rounded-xl outline outline-offset-8 outline-gray-100;
+  }
 }

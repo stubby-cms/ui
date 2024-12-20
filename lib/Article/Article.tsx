@@ -3,6 +3,7 @@ import { Note, Tip, Steps, Step, Code } from '../';
 import { removeFrontMatter, slugify } from '../utils';
 import remarkGfm from 'remark-gfm';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import { ImageZoom } from '../Image/ImageZoom';
 
 const mdxOptions = {
   mdxOptions: {
@@ -61,6 +62,7 @@ export const ArticleComponents: Record<string, React.ComponentType<any>> = {
   h5: createHeading(5),
   h6: createHeading(6),
   a: CustomLink,
+  img: (props) => <ImageZoom {...props} />,
   code: CodeBlock,
   Note,
   Tip,
