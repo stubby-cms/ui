@@ -1,6 +1,5 @@
 import { createElement, useEffect, useState } from 'react';
-import { Note, Tip, Steps, Step } from '../';
-import { highlight } from 'sugar-high';
+import { Note, Tip, Steps, Step, Code } from '../';
 import { removeFrontMatter, slugify } from '../utils';
 import remarkGfm from 'remark-gfm';
 import { MDXRemote } from 'next-mdx-remote/rsc';
@@ -28,14 +27,8 @@ const CustomLink = (props: { href: string; children: React.ReactNode }) => {
   );
 };
 
-const Code = ({ children, ...props }: { children: string }) => {
-  let codeHTML = highlight(children);
-  return (
-    <code
-      dangerouslySetInnerHTML={{ __html: codeHTML }}
-      {...props}
-    />
-  );
+const CodeBlock = ({ children, ...props }: { children: string }) => {
+  return <Code {...props}>{children}</Code>;
 };
 
 function createHeading(level: number) {
@@ -68,7 +61,7 @@ export const ArticleComponents: Record<string, React.ComponentType<any>> = {
   h5: createHeading(5),
   h6: createHeading(6),
   a: CustomLink,
-  code: Code,
+  code: CodeBlock,
   Note,
   Tip,
   Steps,

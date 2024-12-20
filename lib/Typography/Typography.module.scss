@@ -1,3 +1,9 @@
 .typography {
   @apply prose;
+
+  --tw-prose-pre-bg: #fafafe;
+
+  pre {
+    @apply text-sm rounded-xl border;
+  }
 }

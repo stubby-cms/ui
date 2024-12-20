@@ -29,6 +29,16 @@ export const components = [
     description: 'A collection of typographic elements to help style your content.',
     route: '/components/typography',
   },
+  {
+    name: 'Image',
+    description: 'A component to display images with optional captions.',
+    route: '/components/image',
+  },
+  {
+    name: 'Article',
+    description: 'A component to display articles with optional captions.',
+    route: '/components/article',
+  },
 ].sort((a, b) => a.name.localeCompare(b.name)) as {
   name: string;
   description: string;
