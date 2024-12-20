@@ -9,6 +9,7 @@ export const TypographySamples = () => {
       <Typography>
         <Article source={article}></Article>
       </Typography>
+      <div className="h-20"></div>
     </>
   );
 };

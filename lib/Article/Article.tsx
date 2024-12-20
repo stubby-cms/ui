@@ -1,5 +1,5 @@
 import { createElement, useEffect, useState } from 'react';
-import { Note, Tip, Steps, Step } from '@stubbycms/ui';
+import { Note, Tip, Steps, Step } from '../';
 import { highlight } from 'sugar-high';
 import { removeFrontMatter, slugify } from '../utils';
 import remarkGfm from 'remark-gfm';
