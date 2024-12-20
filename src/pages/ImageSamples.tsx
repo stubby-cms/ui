@@ -6,7 +6,7 @@ export const ImageSamples = () => {
     <Typography>
       <ImageZoom
         className="rounded-xl"
-        src="https://mintlify-assets.b-cdn.net/bigbend.jpg"
+        src="https://i.stubby.io/zb2dzjl/c5ajqz.webp"
       ></ImageZoom>
     </Typography>
   );
