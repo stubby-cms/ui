@@ -89,5 +89,5 @@ export function Article(props: {
     }).then(setMdxContent);
   }, [props.source, props.components]);
 
-  return <article className="prose">{mdxContent}</article>;
+  return mdxContent;
 }

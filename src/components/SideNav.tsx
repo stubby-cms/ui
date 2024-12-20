@@ -25,9 +25,9 @@ export const components = [
     route: '/components/steps',
   },
   {
-    name: 'Article',
-    description: 'A component that renders markdown content with custom components.',
-    route: '/components/article',
+    name: 'Typography',
+    description: 'A collection of typographic elements to help style your content.',
+    route: '/components/typography',
   },
 ].sort((a, b) => a.name.localeCompare(b.name)) as {
   name: string;

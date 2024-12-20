@@ -7,14 +7,14 @@ import { CalloutSamples } from './pages/CalloutSamples.tsx';
 import { TabSamples } from './pages/TabSamples.tsx';
 import { AccordionSamples } from './pages/AccordionSamples.tsx';
 import { StepSamples } from './pages/StepSamples.tsx';
-import { ArticleSamples } from './pages/ArticleSamples.tsx';
+import { TypographySamples } from './pages/TypographySamples.tsx';
 
 const components: { [key: string]: React.ReactElement } = {
   accordion: <AccordionSamples />,
   tabs: <TabSamples />,
   callouts: <CalloutSamples />,
   steps: <StepSamples />,
-  article: <ArticleSamples />,
+  typography: <TypographySamples />,
 };
 
 createRoot(document.getElementById('root')!).render(
