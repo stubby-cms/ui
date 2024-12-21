@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { Children, isValidElement, ReactNode } from 'react';
 import styles from './Tabs.module.scss';
 
 interface TabsProps {
-  children: React.ReactNode[] | React.ReactNode;
+  children: ReactNode[] | ReactNode;
 }
 
 const Tabs = ({ children }: TabsProps) => {
   return (
     <div className={styles['tabs']}>
-      {React.Children.map(children, (child, index) => {
-        if (!React.isValidElement(child)) return null;
+      {Children.map(children, (child, index) => {
+        if (!isValidElement(child)) return null;
 
         return (
           <>
