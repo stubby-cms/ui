@@ -1,4 +1,5 @@
-import { Accordion, AccordionGroup, Typography } from '../../lib';
+import { Accordion, AccordionGroup } from '../../dist/accordion';
+import { Typography } from '../../dist/typography';
 
 export const AccordionSamples = () => {
   return (

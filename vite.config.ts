@@ -20,9 +20,15 @@ export default defineConfig({
     minify: 'esbuild',
     copyPublicDir: false,
     lib: {
-      entry: 'lib/index.ts',
-      fileName: 'index',
-      formats: ['es', 'cjs'],
+      entry: {
+        callout: 'lib/Callout/Callout.tsx',
+        code: 'lib/Code/Code.tsx',
+        image: 'lib/Image/ImageZoom.tsx',
+        article: 'lib/Article/Article.tsx',
+        accordion: 'lib/Accordion/Accordion.tsx',
+        typography: 'lib/Typography/Typography.tsx',
+        utils: 'lib/utils.ts',
+      },
     },
     rollupOptions: {
       external: ['react/jsx-runtime', ...Object.keys(peerDependencies)],
