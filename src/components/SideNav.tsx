@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router';
+import { useTheme } from './Theme';
 
 export const components = [
   {
@@ -46,6 +47,11 @@ export const components = [
 }[];
 
 export const SideNav = () => {
+  const theme = useTheme();
+  const setTheme = (themeString: 'dark' | 'light') => {
+    theme.toggleTheme(themeString);
+  };
+
   return (
     <div className="min-w-[220px]">
       <div className="sticky top-10">
@@ -57,13 +63,31 @@ export const SideNav = () => {
               key={component.name}
               className={({ isActive }) => {
                 const classNames =
-                  'text-gray-700 hover:text-gray-900 px-4 py-1.5 hover:bg-slate-100 -ml-4 rounded-full';
-                return isActive ? `${classNames} bg-slate-100 font-medium` : classNames;
+                  'text-gray-700 dark:text-gray-200 dark:hover:text-gray-800 hover:text-gray-900 px-4 py-1.5 hover:bg-slate-100 -ml-4 rounded-full';
+                return isActive
+                  ? `${classNames} bg-slate-100 dark:text-gray-700 font-medium`
+                  : classNames;
               }}
             >
               {component.name}
             </NavLink>
           ))}
+        </div>
+
+        <div className="mt-10">
+          <button
+            className="text-xs uppercase"
+            onClick={() => setTheme('dark')}
+          >
+            Dark
+          </button>{' '}
+          |{' '}
+          <button
+            className="text-xs uppercase"
+            onClick={() => setTheme('light')}
+          >
+            Light
+          </button>
         </div>
       </div>
     </div>

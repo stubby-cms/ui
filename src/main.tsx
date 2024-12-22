@@ -10,6 +10,7 @@ import { StepSamples } from './pages/StepSamples.tsx';
 import { TypographySamples } from './pages/TypographySamples.tsx';
 import { ImageSamples } from './pages/ImageSamples.tsx';
 import { CodeSamples } from './pages/CodeSamples.tsx';
+import { ThemeProvider } from './components/Theme.tsx';
 
 const components: { [key: string]: React.ReactElement } = {
   accordion: <AccordionSamples />,
@@ -23,26 +24,28 @@ const components: { [key: string]: React.ReactElement } = {
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
-    <Routes>
-      <Route
-        path="/"
-        element={<App />}
-      />
+    <ThemeProvider>
+      <Routes>
+        <Route
+          path="/"
+          element={<App />}
+        />
 
-      <Route
-        path="components"
-        element={<ComponentsLayout />}
-      >
-        {Object.keys(components).map((key) => {
-          return (
-            <Route
-              key={key}
-              path={key}
-              element={components[key]}
-            />
-          );
-        })}
-      </Route>
-    </Routes>
+        <Route
+          path="components"
+          element={<ComponentsLayout />}
+        >
+          {Object.keys(components).map((key) => {
+            return (
+              <Route
+                key={key}
+                path={key}
+                element={components[key]}
+              />
+            );
+          })}
+        </Route>
+      </Routes>
+    </ThemeProvider>
   </BrowserRouter>,
 );
