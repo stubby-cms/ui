@@ -7,9 +7,9 @@ This library is a collection of UI components designed to be used in MDX pages. 
 To install the library, use npm or yarn:
 
 ```bash
-npm install @stubbycms/ui
+npm install @stubby-cms/ui
 # or
-yarn add @stubbycms/ui
+yarn add @stubby-cms/ui
 ```
 
 ## Components

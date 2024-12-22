@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   release:
-    if: github.repository == 'stubbycms/ui'
+    if: github.repository == 'stubby-cms/ui'
     name: Release
     runs-on: ubuntu-latest
 
