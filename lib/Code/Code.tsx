@@ -4,6 +4,7 @@ import { codeToHast } from 'shiki';
 import { Components, toJsxRuntime } from 'hast-util-to-jsx-runtime';
 import { Fragment } from 'react';
 import { jsx, jsxs } from 'react/jsx-runtime';
+import './Code.css';
 
 interface Props {
   children: string;
