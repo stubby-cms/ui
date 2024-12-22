@@ -18,6 +18,12 @@ export const removeFrontMatter = (content: string) => {
   return content;
 };
 
+/**
+ * Converts a string to a slug.
+ *
+ * @param text - The string to convert to a slug.
+ * @returns The slugified string.
+ */
 export const slugify = (text: string) => {
   return _slugify(text, { lower: true, strict: true });
 };
