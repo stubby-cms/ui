@@ -9,7 +9,7 @@ import { AccordionSamples } from './pages/AccordionSamples.tsx';
 import { StepSamples } from './pages/StepSamples.tsx';
 import { TypographySamples } from './pages/TypographySamples.tsx';
 import { ImageSamples } from './pages/ImageSamples.tsx';
-import { ArticleSamples } from './pages/ArticleSamples.tsx';
+import { CodeSamples } from './pages/CodeSamples.tsx';
 
 const components: { [key: string]: React.ReactElement } = {
   accordion: <AccordionSamples />,
@@ -18,7 +18,7 @@ const components: { [key: string]: React.ReactElement } = {
   steps: <StepSamples />,
   typography: <TypographySamples />,
   image: <ImageSamples />,
-  article: <ArticleSamples />,
+  code: <CodeSamples />,
 };
 
 createRoot(document.getElementById('root')!).render(

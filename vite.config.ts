@@ -21,17 +21,19 @@ export default defineConfig({
     copyPublicDir: false,
     lib: {
       entry: {
+        index: 'lib/index.ts',
         callout: 'lib/Callout/Callout.tsx',
         code: 'lib/Code/Code.tsx',
         image: 'lib/Image/ImageZoom.tsx',
-        article: 'lib/Article/Article.tsx',
         accordion: 'lib/Accordion/Accordion.tsx',
         typography: 'lib/Typography/Typography.tsx',
         utils: 'lib/utils.ts',
+        steps: 'lib/Steps/Steps.tsx',
+        tabs: 'lib/Tabs/Tabs.tsx',
       },
     },
     rollupOptions: {
-      external: ['react/jsx-runtime', ...Object.keys(peerDependencies)],
+      external: ['react', 'react/jsx-runtime', ...Object.keys(peerDependencies)],
     },
   },
   css: {

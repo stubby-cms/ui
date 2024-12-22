@@ -24,9 +24,17 @@ const Tabs = ({ children }: TabsProps) => {
               className={styles['tabLabel']}
               htmlFor={`tab${index}`}
             >
-              {child.props.title}
+              {
+                // @ts-ignore
+                child.props.title
+              }
             </label>
-            <div className={styles['tabPanel']}>{child.props.children}</div>
+            <div className={styles['tabPanel']}>
+              {
+                // @ts-ignore
+                child.props.children
+              }
+            </div>
           </>
         );
       })}

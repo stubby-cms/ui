@@ -35,9 +35,9 @@ export const components = [
     route: '/components/image',
   },
   {
-    name: 'Article',
-    description: 'A component to display articles with optional captions.',
-    route: '/components/article',
+    name: 'Code',
+    description: 'A component to display code snippets with syntax highlighting.',
+    route: '/components/code',
   },
 ].sort((a, b) => a.name.localeCompare(b.name)) as {
   name: string;

@@ -1,4 +1,4 @@
-import { Article, Typography } from '../../lib';
+import { Typography } from '../../lib';
 // @ts-ignore
 import article from '../samples/article.mdx?raw';
 
@@ -7,7 +7,7 @@ export const TypographySamples = () => {
     <>
       <h1 className="text-4xl font-bold mb-6">Privacy-first programming</h1>
       <Typography>
-        <Article source={article}></Article>
+        <div dangerouslySetInnerHTML={{ __html: article }}></div>
       </Typography>
       <div className="h-20"></div>
     </>
