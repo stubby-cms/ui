@@ -12,6 +12,7 @@ export const Step = ({ children, number, title }: StepProps) => {
     <div
       className={'step'}
       role="listitem"
+      data-stubby-ui
     >
       <div className={'stepLine'}></div>
       <div className={'stepNumber'}>{number}</div>
@@ -24,5 +25,12 @@ export const Step = ({ children, number, title }: StepProps) => {
 };
 
 export const Steps = ({ children }: { children: React.ReactNode }) => {
-  return <div className={'steps'}>{children}</div>;
+  return (
+    <div
+      className={'steps'}
+      data-stubby-ui
+    >
+      {children}
+    </div>
+  );
 };

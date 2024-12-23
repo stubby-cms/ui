@@ -1,8 +1,9 @@
 'use client';
 
 import { type ImgHTMLAttributes } from 'react';
-import './image-zoom.css';
 import Zoom, { type UncontrolledProps } from 'react-medium-image-zoom';
+
+import './ImageZoom.scss';
 
 type ImageProps = ImgHTMLAttributes<HTMLImageElement>;
 
