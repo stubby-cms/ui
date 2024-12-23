@@ -1,5 +1,5 @@
 import React, { Children, isValidElement, ReactNode } from 'react';
-import styles from './Tabs.module.scss';
+import './Tabs.scss';
 
 interface TabsProps {
   children: ReactNode[] | ReactNode;
@@ -7,21 +7,21 @@ interface TabsProps {
 
 const Tabs = ({ children }: TabsProps) => {
   return (
-    <div className={styles['tabs']}>
+    <div className={'tabs'}>
       {Children.map(children, (child, index) => {
         if (!isValidElement(child)) return null;
 
         return (
           <>
             <input
-              className={styles['tabRadio']}
+              className={'tab-radio'}
               type="radio"
               name="tabs"
               id={`tab${index}`}
               defaultChecked={index === 0}
             />
             <label
-              className={styles['tabLabel']}
+              className={'tab-label'}
               htmlFor={`tab${index}`}
             >
               {
@@ -29,7 +29,7 @@ const Tabs = ({ children }: TabsProps) => {
                 child.props.title
               }
             </label>
-            <div className={styles['tabPanel']}>
+            <div className={'tab-panel'}>
               {
                 // @ts-ignore
                 child.props.children

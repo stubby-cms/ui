@@ -1,0 +1,43 @@
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.tab-label {
+  cursor: pointer;
+  @apply mb-2 mr-3 rounded-md px-3 py-1.5 text-sm font-medium hover:bg-gray-800/10 dark:hover:bg-gray-800 dark:text-gray-300 text-gray-500;
+}
+
+.tab-radio {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+}
+
+.tab-radio:checked + .tab-label {
+  @apply relative block text-gray-800 dark:text-gray-50;
+
+  &:after {
+    content: '';
+    display: block;
+    height: 1px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -9px;
+
+    @apply bg-gray-700 dark:bg-gray-50;
+  }
+
+  + .tab-panel {
+    display: block;
+  }
+}
+
+.tab-panel {
+  order: 99;
+  display: none;
+  width: 100%;
+  @apply border-t p-4 border-t-gray-900/10 dark:border-t-gray-50/10;
+}

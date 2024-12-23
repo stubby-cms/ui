@@ -1,4 +1,4 @@
-.accordionGroup {
+.accordion-group {
   .accordion:first-child {
     @apply rounded-b-none rounded-t-xl border-b-0;
   }
@@ -13,10 +13,10 @@
 }
 
 .accordion {
-  @apply bg-white overflow-hidden rounded-xl border dark:border-slate-700;
+  @apply overflow-hidden rounded-xl border border-gray-950/10 dark:border-gray-100/10;
 
-  .accordionSummary {
-    @apply m-0 cursor-pointer select-none bg-slate-50 px-4 py-2.5 font-medium text-gray-900 dark:bg-gray-900 dark:text-gray-200;
+  .accordion-summary {
+    @apply m-0 cursor-pointer select-none px-4 py-2.5 font-medium bg-gray-800/5 dark:bg-gray-300/5;
 
     display: flex;
 
@@ -37,7 +37,7 @@
   }
 
   &[open] {
-    .accordionSummary::before {
+    .accordion-summary::before {
       background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="gray" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 15 6-6 6 6"/></svg>');
 
       @media (prefers-color-scheme: dark) {
@@ -53,6 +53,6 @@
   }
 }
 
-.accordionContent {
-  @apply p-4 dark:bg-slate-900 dark:text-slate-200;
+.accordion-content {
+  @apply p-4;
 }

@@ -8,6 +8,6 @@
   }
 
   img {
-    @apply rounded-xl outline outline-offset-8 outline-gray-100;
+    @apply rounded-xl outline outline-offset-8 outline-gray-900/10 dark:outline-gray-50/10;
   }
 }

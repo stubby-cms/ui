@@ -1,5 +1,5 @@
-import styles from './Typography.module.scss';
+import './Typography.scss';
 
 export const Typography = ({ children }: { children: React.ReactNode }) => {
-  return <div className={styles.typography}>{children}</div>;
+  return <div className={'typography dark:prose-invert'}>{children}</div>;
 };
