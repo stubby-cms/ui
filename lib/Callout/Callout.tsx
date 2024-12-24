@@ -12,7 +12,7 @@ import type { VariantProps } from 'tailwind-variants';
 const callout = tv({
   slots: {
     base: 'mt-6 overflow-hidden rounded-xl border px-5 py-4 flex items-start space-x-3',
-    icon: 'mt-0.5 h-5 w-5',
+    icon: 'h-5 w-5 mt-[1px]',
     content: 'flex-1 overflow-x-auto first:mt-0 last:mb-0',
   },
   variants: {
@@ -91,10 +91,13 @@ const Callout = ({ variant = 'info', children }: CalloutProps) => {
 
   return (
     <div className={base()}>
-      <Icon
-        size={20}
-        className={icon()}
-      />
+      <div className="flex items-center justify-center">
+        <Icon
+          size={20}
+          className={icon()}
+        />
+        <span className="-ml-[4px]">&nbsp;</span>
+      </div>
       <div className={content()}>{children}</div>
     </div>
   );
