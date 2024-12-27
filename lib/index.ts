@@ -5,3 +5,4 @@ export * from './Tabs/Tabs';
 export * from './Code/Code';
 export * from './Typography/Typography';
 export * from './utils';
+export * from './Image/ImageZoom';
