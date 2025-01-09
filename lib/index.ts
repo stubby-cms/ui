@@ -7,4 +7,3 @@ export * from './Image/ImageZoom';
 export * from './Code/Code.Server';
 export * from './Code/Code.Client';
 export * from './Accordion/Accordion';
-export * from './Typography/Typography';

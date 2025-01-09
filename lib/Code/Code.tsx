@@ -14,7 +14,7 @@ export const CodeBlockComponent = ({
   return (
     <div className="text-sm border dark:border-gray-800 shadow-sm rounded-xl leading-6 items-center relative">
       {fileName && (
-        <div className="code-filename font-mono text-xs b-2 border-b h-11 flex items-center bg-gray-50 rounded-t-xl px-3 justify-between dark:bg-gray-900 dark:border-gray-800 dark:text-gray-300">
+        <div className="code-filename font-mono font-medium b-2 border-b h-11 flex items-center bg-gray-50 rounded-t-xl px-3 justify-between dark:bg-gray-900 dark:border-gray-800 dark:text-gray-300">
           <span>{fileName}</span>
         </div>
       )}
