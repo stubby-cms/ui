@@ -41,6 +41,7 @@ async function CodeBlock(props: Props) {
       pre: (props: any) => (
         <CodeBlockComponent
           {...props}
+          code={props.children}
           fileName={props.fileName}
           className={props.className}
         ></CodeBlockComponent>
