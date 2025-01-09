@@ -1,7 +1,5 @@
-import clsx from 'clsx';
-
 export const CardGroup = ({
-  size = 'md',
+  size = 'sm',
   children,
 }: {
   children: React.ReactNode;
@@ -13,7 +11,7 @@ export const CardGroup = ({
     lg: 'grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-2',
   };
 
-  return <div className={clsx('grid', classes[size])}>{children}</div>;
+  return <div className={`grid pb-3 pt-1 ${classes[size]}`}>{children}</div>;
 };
 
 export const Card = ({
@@ -29,36 +27,34 @@ export const Card = ({
   link?: string;
   className?: string;
 }) => {
-  const card = (
-    <div
-      className={clsx(
-        'shadow-sm border dark:border-gray-800 rounded-2xl flex p-3 flex-col items-center justify-center',
-        className,
-      )}
-    >
+  const content = (
+    <>
       {icon && (
         <img
           src={icon}
           alt={title}
-          className="w-10 h-10 object-contain mb-2 dark:filter dark:invert dark:opacity-80"
+          className="mb-2 mt-1.5 h-10 w-10 object-contain dark:opacity-80 dark:invert dark:filter"
         />
       )}
-      <div className="flex items-center justify-center flex-col">
-        <h3 className="font-semibold">{title}</h3>
+      <div className="flex flex-col items-center justify-center">
+        <span className="font-medium">{title}</span>
         {description && <p className="opacity-60">{description}</p>}
       </div>
-    </div>
+    </>
   );
+
+  const containerClasses =
+    'flex flex-col items-center justify-center rounded-2xl border p-3 hover:shadow-sm dark:border-gray-800 transition-shadow duration-200 bg-white dark:bg-transparent dark:text-gray-100';
 
   return link ? (
     <a
       href={link}
-      className="hover:shadow-sm overflow-hidden rounded-2xl transition-shadow duration-200"
-      target="_blank"
+      className={`no-underline ${containerClasses} ${className}`}
+      target={link.startsWith('http') ? '_blank' : '_self'}
     >
-      {card}
+      {content}
     </a>
   ) : (
-    card
+    <div className={`${containerClasses} ${className}`}>{content}</div>
   );
 };
