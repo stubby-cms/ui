@@ -1,56 +1,35 @@
-import type { JSX } from 'react';
-import type { BundledLanguage } from 'shiki';
-import { codeToHast } from 'shiki';
-import { Components, toJsxRuntime } from 'hast-util-to-jsx-runtime';
-import { Fragment } from 'react';
-import { jsx, jsxs } from 'react/jsx-runtime';
-import './Code.css';
+import clsx from 'clsx';
+import { CopyButton } from './Copy';
 
-interface Props {
-  children: string;
-  lang: BundledLanguage;
-  className: string;
-}
+export const CodeBlockComponent = ({
+  code,
+  fileName,
+  className,
+  ...props
+}: {
+  code: string;
+  fileName?: string;
+  className?: string;
+}) => {
+  return (
+    <div className="text-sm border dark:border-gray-800 shadow-sm rounded-xl leading-6 items-center relative">
+      {fileName && (
+        <div className="code-filename font-mono text-xs b-2 border-b h-11 flex items-center bg-gray-50 rounded-t-xl px-3 justify-between dark:bg-gray-900 dark:border-gray-800 dark:text-gray-300">
+          <span>{fileName}</span>
+        </div>
+      )}
 
-async function CodeBlock(props: Props) {
-  let lang = 'text'; // default monospaced text
+      <CopyButton
+        className="absolute top-2 right-2"
+        value={code}
+        aria-label="Copy code"
+        title="Copy code"
+      ></CopyButton>
 
-  if (props.lang && props.lang.startsWith('lang-')) {
-    lang = props.lang.replace('lang-', '');
-  }
-
-  if (props.className && props.className.startsWith('lang-')) {
-    lang = props.className.replace('lang-', '');
-  }
-
-  const hast = await codeToHast(props.children, {
-    lang,
-    themes: {
-      dark: 'material-theme-ocean',
-      light: 'min-light',
-    },
-  });
-
-  return toJsxRuntime(hast, {
-    Fragment,
-    jsx,
-    jsxs,
-    components: {
-      pre: (props: any) => (
-        <pre
-          {...props}
-          className="code-block rounded-xl border"
-        />
-      ),
-    } as Components,
-  }) as JSX.Element;
-}
-
-async function PreBlock({ children }: { children: any }) {
-  if ('type' in children && children['type'] === 'code') {
-    return CodeBlock(children['props']);
-  }
-  return children;
-}
-
-export { CodeBlock, PreBlock };
+      <pre
+        {...props}
+        className={clsx('code-block not-prose px-4 py-3 rounded-xl overflow-x-auto', className)}
+      />
+    </div>
+  );
+};

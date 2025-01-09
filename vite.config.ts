@@ -3,6 +3,7 @@ import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 import { peerDependencies } from './package.json';
 import { libInjectCss } from 'vite-plugin-lib-inject-css';
+import preserveDirectives from 'rollup-preserve-directives';
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -14,6 +15,7 @@ export default defineConfig({
       rollupTypes: true,
       include: ['lib'],
     }), // Output .d.ts files
+    preserveDirectives(),
   ],
   build: {
     target: 'esnext',
@@ -23,8 +25,9 @@ export default defineConfig({
       entry: {
         index: 'lib/index.ts',
         callout: 'lib/Callout/Callout.tsx',
-        code: 'lib/Code/Code.tsx',
         image: 'lib/Image/ImageZoom.tsx',
+        code: 'lib/Code/Code.Server.tsx',
+        codeClient: 'lib/Code/Code.Client.tsx',
         accordion: 'lib/Accordion/Accordion.tsx',
         typography: 'lib/Typography/Typography.tsx',
         utils: 'lib/utils.ts',
@@ -33,7 +36,14 @@ export default defineConfig({
       },
     },
     rollupOptions: {
-      external: ['react', 'react/jsx-runtime', ...Object.keys(peerDependencies)],
+      external: [
+        'react',
+        'react/jsx-runtime',
+        'shiki',
+        'hast-util-to-jsx-runtime',
+        /^shiki\/.*/,
+        ...Object.keys(peerDependencies),
+      ],
     },
   },
   css: {
