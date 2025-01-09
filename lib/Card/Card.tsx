@@ -32,18 +32,16 @@ export const Card = ({
   const card = (
     <div
       className={clsx(
-        'shadow-sm border rounded-xl flex p-3 flex-col items-center justify-center',
+        'shadow-sm border dark:border-gray-800 rounded-2xl flex p-3 flex-col items-center justify-center',
         className,
       )}
     >
       {icon && (
-        <div className="">
-          <img
-            src={icon}
-            alt={title}
-            className="w-10 h-10 object-contain mb-2"
-          />
-        </div>
+        <img
+          src={icon}
+          alt={title}
+          className="w-10 h-10 object-contain mb-2 dark:filter dark:invert dark:opacity-80"
+        />
       )}
       <div className="flex items-center justify-center flex-col">
         <h3 className="font-semibold">{title}</h3>
@@ -55,7 +53,7 @@ export const Card = ({
   return link ? (
     <a
       href={link}
-      className="hover:shadow-sm overflow-hidden rounded-xl transition-shadow duration-200"
+      className="hover:shadow-sm overflow-hidden rounded-2xl transition-shadow duration-200"
       target="_blank"
     >
       {card}
