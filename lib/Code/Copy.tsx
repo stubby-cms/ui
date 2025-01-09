@@ -43,7 +43,7 @@ export function CopyButton({ value, className, src, ...props }: CopyButtonProps)
         <span className="sr-only">Copy</span>
         {hasCopied ? <CheckIcon size={14} /> : <CopyIcon size={14} />}
       </button>
-      <div className="copy-button-tooltip group-hover:block hidden absolute mt-2 left-[-28px] text-center w-20">
+      <div className="group-hover:block hidden absolute mt-2 text-center px-2 py-0.5 bg-gray-100 dark:bg-gray-800 rounded-md shadow-sm border dark:border-gray-800">
         {hasCopied ? 'Copied!' : 'Copy'}
       </div>
     </div>
