@@ -11,6 +11,7 @@ import { TypographySamples } from './pages/TypographySamples.tsx';
 import { ImageSamples } from './pages/ImageSamples.tsx';
 import { CodeSamples } from './pages/CodeSamples.tsx';
 import { ThemeProvider } from './components/Theme.tsx';
+import { CardSamples } from './pages/CardSamples.tsx';
 
 const components: { [key: string]: React.ReactElement } = {
   accordion: <AccordionSamples />,
@@ -20,6 +21,7 @@ const components: { [key: string]: React.ReactElement } = {
   typography: <TypographySamples />,
   image: <ImageSamples />,
   code: <CodeSamples />,
+  cards: <CardSamples />,
 };
 
 createRoot(document.getElementById('root')!).render(

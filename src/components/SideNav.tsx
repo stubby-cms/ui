@@ -14,6 +14,11 @@ export const components = [
     route: '/components/callouts',
   },
   {
+    name: 'Cards',
+    description: 'A card is a flexible and extensible content container.',
+    route: '/components/cards',
+  },
+  {
     name: 'Accordion',
     description:
       'An accordion is a vertically stacked list of items that utilizes show/hide functionality.',
