@@ -1,4 +1,4 @@
-import { Typography } from '../../lib';
+import { Typography } from '../../lib/Typography/Typography';
 // @ts-ignore
 import article from '../samples/article.mdx?raw';
 

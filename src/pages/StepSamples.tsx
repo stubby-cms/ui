@@ -1,4 +1,5 @@
-import { Step, Steps, Typography } from '../../lib';
+import { Step, Steps } from '../../lib';
+import { Typography } from '../../lib/Typography/Typography';
 
 export const StepSamples = () => {
   return (

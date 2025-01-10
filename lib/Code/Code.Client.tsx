@@ -27,8 +27,6 @@ const highlight = async (
   if (theme === 'dark') themeOrThemes = { theme: 'material-theme-ocean' };
   else if (theme === 'light') themeOrThemes = { theme: 'min-light' };
 
-  console.log('themeOrThemes', themeOrThemes);
-
   const out = await codeToHast(code, {
     lang,
     ...themeOrThemes,

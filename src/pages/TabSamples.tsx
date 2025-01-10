@@ -1,4 +1,5 @@
-import { Tab, Tabs, Typography } from '../../lib';
+import { Tab, Tabs } from '../../lib';
+import { Typography } from '../../lib/Typography/Typography';
 
 export function TabSamples() {
   return (

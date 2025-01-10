@@ -1,5 +1,5 @@
-import { Typography } from '../../lib';
 import { ImageZoom } from '../../lib/Image/ImageZoom';
+import { Typography } from '../../lib/Typography/Typography';
 
 export const ImageSamples = () => {
   return (

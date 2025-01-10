@@ -65,7 +65,7 @@ async function CodeBlock(props: Props) {
         return (
           <CodeBlockComponent
             {..._props}
-            code={props.children}
+            code={props.children.toString()}
             fileName={props.fileName}
             className={`${props.className} ${_props.className}`}
           ></CodeBlockComponent>
