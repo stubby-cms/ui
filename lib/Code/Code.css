@@ -18,5 +18,5 @@ html.dark .code-block span {
 
 html.dark .code-block span.line.highlighted,
 html.dark .code-block span.line.highlighted span {
-  @apply dark:!bg-gray-700;
+  @apply dark:!bg-gray-800;
 }
