@@ -1,13 +1,12 @@
 'use client';
 
-import clsx from 'clsx';
+import { transformerNotationHighlight } from '@shikijs/transformers';
 import { Components, toJsxRuntime } from 'hast-util-to-jsx-runtime';
 import type { JSX } from 'react';
 import { Fragment, useLayoutEffect, useState } from 'react';
 import { jsx, jsxs } from 'react/jsx-runtime';
 import type { BundledLanguage } from 'shiki/bundle/web';
 import { CodeBlockComponent } from './Code';
-import { transformerNotationHighlight } from '@shikijs/transformers';
 
 const highlight = async (
   code: string,
