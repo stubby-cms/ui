@@ -1,12 +1,12 @@
-import type { JSX } from 'react';
-import type { BundledLanguage, DecorationItem } from 'shiki';
-import { codeToHast } from 'shiki';
+import { transformerNotationHighlight } from '@shikijs/transformers';
 import { Components, toJsxRuntime } from 'hast-util-to-jsx-runtime';
+import type { JSX } from 'react';
 import { Fragment } from 'react';
 import { jsx, jsxs } from 'react/jsx-runtime';
-import './Code.css';
+import type { BundledLanguage } from 'shiki';
+import { codeToHast } from 'shiki';
 import { CodeBlockComponent } from './Code';
-import { transformerNotationHighlight } from '@shikijs/transformers';
+import './Code.css';
 
 interface Props {
   children: string;
