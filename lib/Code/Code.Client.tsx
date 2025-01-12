@@ -7,32 +7,26 @@ import { Fragment, useLayoutEffect, useState } from 'react';
 import { jsx, jsxs } from 'react/jsx-runtime';
 import type { BundledLanguage } from 'shiki/bundle/web';
 import { CodeBlockComponent } from './Code';
+import { transformerNotationHighlight } from '@shikijs/transformers';
 
 const highlight = async (
   code: string,
   lang: BundledLanguage,
   className: string = '',
-  theme: 'dark' | 'light' | 'auto' = 'auto',
   fileName?: string,
 ) => {
   const codeToHast = await import('shiki/bundle/web').then((mod) => mod.codeToHast);
 
-  let themeOrThemes: any = {
+  const hast = await codeToHast(code, {
+    lang,
     themes: {
       dark: 'material-theme-ocean',
       light: 'min-light',
     },
-  };
-
-  if (theme === 'dark') themeOrThemes = { theme: 'material-theme-ocean' };
-  else if (theme === 'light') themeOrThemes = { theme: 'min-light' };
-
-  const out = await codeToHast(code, {
-    lang,
-    ...themeOrThemes,
+    transformers: [transformerNotationHighlight()],
   });
 
-  return toJsxRuntime(out, {
+  return toJsxRuntime(hast, {
     Fragment,
     jsx,
     jsxs,
@@ -48,35 +42,41 @@ const highlight = async (
   }) as JSX.Element;
 };
 
-export const PreBlockClient = ({
-  children,
-  className,
-  fileName,
-  lang = 'text',
-  theme = 'auto',
-  ...rest
-}: {
-  children: any;
-  className?: string;
+const CodeBlockClient = (props: {
+  children: string;
+  className: string;
+  lang: BundledLanguage;
   fileName?: string;
-  lang?: BundledLanguage | 'text';
-  theme?: 'dark' | 'light' | 'auto';
-  [key: string]: any;
 }) => {
+  console.log('CodeBlockClient', props);
+
   const [nodes, setNodes] = useState(<></>);
 
-  useLayoutEffect(() => {
-    void highlight(children ?? '', lang as BundledLanguage, className, theme, fileName).then(
-      setNodes,
-    );
-  }, [children, lang, className, theme, fileName]);
+  let lang = 'text'; // default monospaced text
 
-  return (
-    <pre
-      className={clsx('code-block', className)}
-      {...rest}
-    >
-      {nodes}
-    </pre>
-  );
+  if (props.lang) {
+    lang = props.lang.replace('lang-', '');
+  }
+
+  if (props.className && props.className.startsWith('lang-')) {
+    lang = props.className.replace('lang-', '');
+  }
+
+  useLayoutEffect(() => {
+    void highlight(
+      props.children ?? '',
+      lang as BundledLanguage,
+      props.className,
+      props.fileName,
+    ).then(setNodes);
+  }, [props.children, props.lang, props.className]);
+
+  return nodes;
+};
+
+export const PreBlockClient = ({ children }: { children: any }) => {
+  if ('type' in children && children['type'] === 'code') {
+    return CodeBlockClient(children['props']);
+  }
+  return children;
 };

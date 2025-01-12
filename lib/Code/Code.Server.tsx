@@ -13,7 +13,6 @@ interface Props {
   lang: BundledLanguage;
   className: string;
   fileName?: string;
-  highlight?: string;
 }
 
 async function CodeBlock(props: Props) {
@@ -25,26 +24,6 @@ async function CodeBlock(props: Props) {
 
   if (props.className && props.className.startsWith('lang-')) {
     lang = props.className.replace('lang-', '');
-  }
-
-  const decorations: DecorationItem[] = [];
-
-  if (props.highlight) {
-    const linesAndRanges = props.highlight.split(',');
-    linesAndRanges.forEach((line) => {
-      if (line.includes('-')) {
-        const [start, end] = line.split('-');
-        decorations.push({
-          start: parseInt(start),
-          end: parseInt(end),
-          properties: {
-            class: 'highlighted',
-          },
-        });
-      } else {
-        decorations.push({ start: parseInt(line), end: parseInt(line) });
-      }
-    });
   }
 
   const hast = await codeToHast(props.children, {

@@ -1,9 +1,9 @@
+import Markdown from 'markdown-to-jsx';
 import { PreBlockClient } from '../../lib/Code/Code.Client';
 
-export const CodeSamples = () => {
-  return (
-    <PreBlockClient lang="jsx">
-      {`
+const code = `
+
+\`\`\`tsx fileName="src/pages/BlogListPage.tsx"
 // Fetch data from the server
 const getData = async () => {
   const siteId = "*****";
@@ -34,8 +34,20 @@ const BlogListPage = async () => {
   );
 }
 
-export default BlogListPage;      
-      `.trim()}
-    </PreBlockClient>
+export default BlogListPage; 
+\`\`\`     
+      `.trim();
+
+export const CodeSamples = () => {
+  return (
+    <Markdown
+      options={{
+        overrides: {
+          pre: PreBlockClient,
+        },
+      }}
+    >
+      {code}
+    </Markdown>
   );
 };
